@@ -1,6 +1,6 @@
 "use client";
 
-import { EditPost, Post, PostsResponse } from "@/types/types";
+import { EditPost, Post, PostsResponse } from "../types/types";
 import { LoadingPage } from "../components/loading-page";
 import { PostCard } from "../components/post-card";
 import axios from "axios";

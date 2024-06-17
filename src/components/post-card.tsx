@@ -71,17 +71,6 @@ export const PostCard: React.FC<PostCardProps> = ({
 
   return (
     <div className="relative w-full max-w-sm rounded-lg overflow-hidden shadow-lg bg-white dark:bg-gray-800">
-      <img
-        alt="Postcard Image"
-        className="w-full h-48 object-cover"
-        height="200"
-        src={`https://source.unsplash.com/random/400x200?sig=${post.id}`}
-        style={{
-          aspectRatio: "400/200",
-          objectFit: "cover",
-        }}
-        width="400"
-      />
       <div className="p-4">
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">

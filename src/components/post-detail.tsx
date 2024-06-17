@@ -1,4 +1,5 @@
 import { Post } from "../types/types";
+import Image from 'next/image';
 import Link from "next/link";
 
 interface PostDetailProps {
@@ -19,7 +20,7 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
                 <div>June 14, 2024</div>
               </div>
             </div>
-            <img
+            <Image
               alt="Author"
               className="rounded-full w-16 h-16 lg:w-24 lg:h-24 object-cover"
               height={200}
@@ -40,7 +41,7 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
             undergoing a transformative shift.
           </p>
           <p>{post.body}</p>
-          <img
+          <Image
             alt="Web Development"
             className="rounded-lg object-cover"
             height={400}
@@ -103,7 +104,7 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
           <h3 className="text-lg font-bold">Related Posts</h3>
           <div className="mt-4 space-y-4">
             <Link className="flex items-start gap-4" href="#">
-              <img
+              <Image
                 alt="Related Post"
                 className="rounded-lg w-20 h-20 object-cover"
                 height={80}
@@ -125,7 +126,7 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
               </div>
             </Link>
             <Link className="flex items-start gap-4" href="#">
-              <img
+              <Image
                 alt="Related Post"
                 className="rounded-lg w-20 h-20 object-cover"
                 height={80}
@@ -147,7 +148,7 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
               </div>
             </Link>
             <Link className="flex items-start gap-4" href="#">
-              <img
+              <Image
                 alt="Related Post"
                 className="rounded-lg w-20 h-20 object-cover"
                 height={80}

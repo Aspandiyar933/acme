@@ -1,5 +1,6 @@
 import { Button } from "../../components/ui/button";
-import { EditPost, Post } from "@/types/types";
+import Image from 'next/image';
+import { EditPost, Post } from "../../types/types";
 import React, { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Label } from "../../components/ui/label";
@@ -61,7 +62,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, onPostUpdate }) => {
 
   return (
     <div className="relative w-full max-w-sm rounded-lg overflow-hidden shadow-lg bg-white dark:bg-gray-800">
-      <img
+      <Image
         alt="Postcard Image"
         className="w-full h-48 object-cover"
         height="200"

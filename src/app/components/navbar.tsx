@@ -20,7 +20,7 @@ To read more about using these font, please visit the Next.js documentation:
 import Link from "next/link"
 import { NavigationMenuLink, NavigationMenuList, NavigationMenu } from "../../components/ui/navigation-menu"
 import { Button } from "../../components/ui/button"
-import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
+import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuContent, DropdownMenu } from "../../components/ui/dropdown-menu"
 
 export function Navbar() {
   return (

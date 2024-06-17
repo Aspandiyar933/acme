@@ -5,18 +5,17 @@ import { useAuth } from "../../context/AuthContext";
 import withAuth from "../../components/withAuth";
 
 const Dashboard: React.FC = () => {
-    const { user } = useAuth();
+  const { user } = useAuth();
 
-    if (!user) return <LoadingPage />
+  if (!user) return <LoadingPage />;
 
-    return (
-        <div>
-            <h1>Dashboard</h1>
-            <p>Welcome, {user}</p>
-            <LogoutButton />
-        </div>
-    )
-
-}
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <p>Welcome, {user}</p>
+      <LogoutButton />
+    </div>
+  );
+};
 
 export default withAuth(Dashboard);

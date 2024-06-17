@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { EditPost, Post } from "@/types/types";
+import { Button } from "../components/ui/button";
+import { EditPost, Post } from "../types/types";
 import React, { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { Input } from "./ui/input";
-import { truncateText } from "@/lib/truncate";
-import { fetchRandomImage } from "@/services/imageService";
+import { truncateText } from "../lib/truncate";
+import { fetchRandomImage } from "../services/imageService";
 
 interface PostCardProps {
   post: Post;

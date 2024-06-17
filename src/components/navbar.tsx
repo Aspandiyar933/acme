@@ -18,8 +18,8 @@ To read more about using these font, please visit the Next.js documentation:
 - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 **/
 import Link from "next/link"
-import { NavigationMenuLink, NavigationMenuList, NavigationMenu } from "@/components/ui/navigation-menu"
-import { Button } from "@/components/ui/button"
+import { NavigationMenuLink, NavigationMenuList, NavigationMenu } from "../components/ui/navigation-menu"
+import { Button } from "../components/ui/button"
 import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
 
 export function Navbar() {

@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button"
-import { useAuth } from "@/context/AuthContext"
+import { Button } from "../components/ui/button"
+import { useAuth } from "../context/AuthContext"
 
 const LogoutButton: React.FC= () => {
   const { logout } = useAuth();

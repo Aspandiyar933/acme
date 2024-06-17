@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useRouter } from 'next/navigation';
 import LoginForm from '../../components/login-form';
-import { LoadingPage } from '@/components/loading-page';
+import { LoadingPage } from '../../components/loading-page';
 
 const LoginPage: React.FC = () => {
   const { user } = useAuth();

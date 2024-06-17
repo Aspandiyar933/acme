@@ -1,8 +1,8 @@
 import React from "react";
-import LogoutButton from "@/components/logout-button";
-import { LoadingPage } from "@/components/loading-page";
-import { useAuth } from "@/context/AuthContext";
-import withAuth from "@/components/withAuth";
+import LogoutButton from "../../components/logout-button";
+import { LoadingPage } from "../../components/loading-page";
+import { useAuth } from "../../context/AuthContext";
+import withAuth from "../../components/withAuth";
 
 const Dashboard: React.FC = () => {
     const { user } = useAuth();

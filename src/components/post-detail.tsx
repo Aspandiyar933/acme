@@ -1,9 +1,8 @@
-import { Post } from "@/@types/types";
-import Link from "next/link"
+import { Post } from "@/types/types";
+import Link from "next/link";
 
 interface PostDetailProps {
   post: Post;
-  
 }
 
 export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
@@ -35,13 +34,12 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
         </section>
         <article className="prose prose-gray dark:prose-invert mt-8 lg:mt-12">
           <p>
-            In the ever-evolving landscape of web development, the future holds exciting possibilities. As technology
-            continues to advance, the way we build and interact with websites and web applications is undergoing a
-            transformative shift.
+            In the ever-evolving landscape of web development, the future holds
+            exciting possibilities. As technology continues to advance, the way
+            we build and interact with websites and web applications is
+            undergoing a transformative shift.
           </p>
-          <p>
-            {post.body}
-          </p>
+          <p>{post.body}</p>
           <img
             alt="Web Development"
             className="rounded-lg object-cover"
@@ -54,16 +52,20 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
             width={800}
           />
           <p>
-            Another key aspect of the future of web development is the continued emphasis on performance and
-            scalability. As users demand faster loading times and seamless experiences, developers are leveraging
-            technologies like server-side rendering, edge computing, and progressive web apps to deliver lightning-fast
-            and highly responsive web applications.
+            Another key aspect of the future of web development is the continued
+            emphasis on performance and scalability. As users demand faster
+            loading times and seamless experiences, developers are leveraging
+            technologies like server-side rendering, edge computing, and
+            progressive web apps to deliver lightning-fast and highly responsive
+            web applications.
           </p>
           <p>
-            Furthermore, the integration of artificial intelligence and machine learning is transforming the way we
-            approach web development. Intelligent algorithms can now assist in tasks such as content personalization,
-            user behavior analysis, and even automated code generation, empowering developers to create more
-            personalized and intelligent web experiences.
+            Furthermore, the integration of artificial intelligence and machine
+            learning is transforming the way we approach web development.
+            Intelligent algorithms can now assist in tasks such as content
+            personalization, user behavior analysis, and even automated code
+            generation, empowering developers to create more personalized and
+            intelligent web experiences.
           </p>
         </article>
       </div>
@@ -71,16 +73,28 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
         <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 lg:p-8">
           <h3 className="text-lg font-bold">Table of Contents</h3>
           <nav className="mt-4 space-y-2">
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" href="#">
+            <Link
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              href="#"
+            >
               The Future of Web Development
             </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" href="#">
+            <Link
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              href="#"
+            >
               The Rise of Component-based Architectures
             </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" href="#">
+            <Link
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              href="#"
+            >
               Performance and Scalability
             </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" href="#">
+            <Link
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              href="#"
+            >
               AI and Machine Learning in Web Development
             </Link>
           </nav>
@@ -101,10 +115,12 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
                 width={80}
               />
               <div>
-                <h4 className="text-base font-medium">The Rise of No-Code Development</h4>
+                <h4 className="text-base font-medium">
+                  The Rise of No-Code Development
+                </h4>
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  Explore the growing trend of no-code development platforms and their impact on the future of web
-                  development.
+                  Explore the growing trend of no-code development platforms and
+                  their impact on the future of web development.
                 </p>
               </div>
             </Link>
@@ -121,9 +137,12 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
                 width={80}
               />
               <div>
-                <h4 className="text-base font-medium">The Importance of Accessibility in Web Design</h4>
+                <h4 className="text-base font-medium">
+                  The Importance of Accessibility in Web Design
+                </h4>
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  Learn how to create inclusive and accessible web experiences for all users.
+                  Learn how to create inclusive and accessible web experiences
+                  for all users.
                 </p>
               </div>
             </Link>
@@ -140,9 +159,12 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
                 width={80}
               />
               <div>
-                <h4 className="text-base font-medium">The Future of Headless CMS</h4>
+                <h4 className="text-base font-medium">
+                  The Future of Headless CMS
+                </h4>
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  Explore the benefits and use cases of headless content management systems in web development.
+                  Explore the benefits and use cases of headless content
+                  management systems in web development.
                 </p>
               </div>
             </Link>
@@ -150,5 +172,5 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

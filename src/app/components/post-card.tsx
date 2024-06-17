@@ -1,27 +1,27 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import { EditPost, Post } from "@/types/types";
 import React, { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { Label } from "./ui/label";
-import { Textarea } from "./ui/textarea";
-import { Input } from "./ui/input";
-import { truncateText } from "@/lib/truncate";
-import { fetchRandomImage } from "@/services/imageService";
+import { Label } from "../../components/ui/label";
+import { Textarea } from "../../components/ui/textarea";
+import { Input } from "../../components/ui/input";
+import { truncateText } from "../../lib/truncate";
+import { fetchRandomImage } from "../../services/imageService";
+import axios from "axios";
+
+
 
 interface PostCardProps {
   post: Post;
   onPostUpdate: (updatedPost: EditPost) => void;
-  onPostDelete: (postId: number) => void;
 }
 
-export const PostCard: React.FC<PostCardProps> = ({
-  post,
-  onPostUpdate,
-  onPostDelete,
-}) => {
+export const PostCard: React.FC<PostCardProps> = ({ post, onPostUpdate }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [editPost, setEditPost] = useState<EditPost>(post);
-  const [imageUrl, setImageUrl] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string>('');
+  const [title, setTitle] = useState()
+
 
   useEffect(() => {
     setEditPost(post);
@@ -39,34 +39,24 @@ export const PostCard: React.FC<PostCardProps> = ({
     setIsOpen(true);
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = async () => {
     try {
-      // Update the post in the parent component and localStorage
-      onPostUpdate(editPost);
+      const response = await axios.put(`https://dummyjson.com/posts/${editPost.id}`, editPost);
+      onPostUpdate(response.data);
       setIsOpen(false);
-    } catch (error) {
+    } catch(error) {
       console.error("Failed to update post", error);
     }
   };
 
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setEditPost((prev) => ({
-      ...prev,
-      title: value,
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setEditPost((prev: any) => ({
+      ...prev, 
+      [id]: value,
     }));
-  };
-
-  const handleBodyChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = e.target;
-    setEditPost((prev) => ({
-      ...prev,
-      body: value,
-    }));
-  };
-
-  const handleDeleteClick = () => {
-    onPostDelete(post.id);
   };
 
   return (
@@ -92,7 +82,7 @@ export const PostCard: React.FC<PostCardProps> = ({
               className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
               size="icon"
               variant="ghost"
-              onClick={handleEditClick}
+              onClick={() => setIsOpen(true)}
             >
               <FilePenIcon className="w-5 h-5" />
               <span className="sr-only">Edit</span>
@@ -101,7 +91,6 @@ export const PostCard: React.FC<PostCardProps> = ({
               className="text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-500"
               size="icon"
               variant="ghost"
-              onClick={handleDeleteClick}
             >
               <TrashIcon className="w-5 h-5" />
               <span className="sr-only">Delete</span>
@@ -122,9 +111,7 @@ export const PostCard: React.FC<PostCardProps> = ({
             </span>
           </div>
         </div>
-        <p className="text-gray-700 dark:text-gray-300">
-          {truncateText(post.body, 20)}
-        </p>
+        <p className="text-gray-700 dark:text-gray-300">{truncateText(post.body, 20)}</p>
       </div>
       <Dialog
         open={isOpen}
@@ -139,21 +126,16 @@ export const PostCard: React.FC<PostCardProps> = ({
                 Update the content of your post.
               </p>
             </div>
-            <form
-              className="space-y-6"
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSaveClick();
-              }}
-            >
+            <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); handleSaveClick(); }}>
               <div className="grid gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="title">Title</Label>
-                  <Input
+                  <Input                
                     type="text"
+                    defaultValue="My Awesome Post"
                     id="title"
                     value={editPost.title}
-                    onChange={handleTitleChange}
+                    onChange={handleInputChange}
                     placeholder="Enter a title for your post"
                   />
                 </div>
@@ -161,19 +143,16 @@ export const PostCard: React.FC<PostCardProps> = ({
                   <Label htmlFor="content">Content</Label>
                   <Textarea
                     className="min-h-[200px]"
+                    defaultValue="This is the content of my awesome post. I can update it here."
                     id="content"
                     value={editPost.body}
-                    onChange={handleBodyChange}
+                    onChange={handleInputChange}
                     placeholder="Write the content of your post"
                   />
                 </div>
               </div>
-              <Button type="submit" className="mr-2">
-                Save
-              </Button>
-              <Button onClick={() => setIsOpen(false)} variant="ghost">
-                Cancel
-              </Button>
+              <Button type="submit" className="mr-2">Save</Button>
+              <Button onClick ={() => setIsOpen(false)} variant="ghost">Cancel</Button>
             </form>
           </div>
         </div>

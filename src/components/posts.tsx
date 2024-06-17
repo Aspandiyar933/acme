@@ -1,12 +1,10 @@
 "use client";
 
-import { EditPost, Post, PostsResponse } from "@/@types/types";
+import { EditPost, Post, PostsResponse } from "@/types/types";
 import { LoadingPage } from "@/components/loading-page";
 import { PostCard } from "@/components/post-card";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
-
 
 const PostsPage: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -43,7 +41,6 @@ const PostsPage: React.FC = () => {
     localStorage.setItem("posts", JSON.stringify(updatedPosts));
   };
 
-
   const handlePostDelete = (postId: number) => {
     const updatedPosts = posts.filter((post) => post.id !== postId);
     setPosts(updatedPosts);
@@ -55,11 +52,16 @@ const PostsPage: React.FC = () => {
 
   return (
     <>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
-            <PostCard key={post.id} post={post} onPostUpdate={handlePostUpdate} onPostDelete={handlePostDelete}/>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <PostCard
+            key={post.id}
+            post={post}
+            onPostUpdate={handlePostUpdate}
+            onPostDelete={handlePostDelete}
+          />
+        ))}
+      </div>
     </>
   );
 };

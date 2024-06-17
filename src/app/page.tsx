@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/navigation';
-import { LoadingPage } from '@/components/loading-page';
+import { LoadingPage } from '../components/loading-page';
 import PostsPage from '../components/posts';
 
 const HomePage: React.FC = () => {

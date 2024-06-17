@@ -35,7 +35,7 @@ export function PostForm() {
         <div className="text-center">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50">Post Form</h1>
           <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-            Submit your post here and we'll review it.
+            Submit your post here and we&apos;ll review it.
           </p>
         </div>
         <form className="space-y-6">
